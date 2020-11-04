@@ -1,6 +1,8 @@
 # AWS-Video-transcoding-and-streaming
 The Pandemic crossed the lengths when people weren’t allowed to go out, but the only way it all turned out well, was because of the Online streaming. From a small gathering to worship god, singing holy songs on live streams, to getting entertained, streaming helped everyone. Especially at this time, new emerging platforms for streaming, transcoding and giving out an optimized result, on several devices like smartphones, laptops, tablets, etc. AWS, and its several services like Elastic Transcoder, S3 buckets, CloudFront tops the chart. Streaming with AWS can be entertaining, fun, and secure as well. This project aims to find out, the optimization, delivering the streamed videos with minimal latency.
 
+
+
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3({
   apiVersion: '2012–09–25'
@@ -50,6 +52,11 @@ exports.handler = function(event, context) {
     context.succeed('Job successfully completed');
   });
 };
+
+
+
+
+
 When you paste the above code to your Lambda function editor, replace the pipelineId variable with the with ID of the pipeline in your account. You can get the pipeline ID by using the AWS terminal command like so:
 aws elastictranscoder list-pipelines
 The output JSON string will contain the pipeline Id field. Paste its value into your AWS Lambda function. The other variable you might want to change in the future is the PresetId . The value the above code sample contains refers to a preset that transcodes the video to a progressively streaming MP4 file optimized for smartphones and tablets. If AWS changes the Id of the preset in the future, you might need to get the new value. You can retrieve it by running this command:
